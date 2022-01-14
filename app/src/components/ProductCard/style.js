@@ -15,7 +15,7 @@ export const Header = styled.div`
 export const Select = styled.div`
     border: 1px solid #dedede;
     height: 4vh;
-    width: 8vw;
+    width: 6vw;
     margin-right: 4px;
 `
 export const Name = styled.div`

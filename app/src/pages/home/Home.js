@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import NewProductButton from '../../components/NewProductButton';
-import DeleteProductButton from '../../components/DeleteProductButton';
-import EditProductButton from '../../components/EditProductButton';
+import NewProductOrEditProductCard from '../../components/NewProductOrEditProductCard/NewProductOrEditProductCard';
+import ConfirmPopUP from '../../components/ConfirmPopUp/ConfirmPopUp';
+import DeleteIcon from '../../icons/delete.svg';
+import EditIcon from '../../icons/edit.svg';
 import {
     Title,
     Wrapper,
     Container,
     NavBar,
     SelectAll,
+    DeleteProductButton,
+    NewProductButton,
+    EditProductButton,
 } from './style';
 
 
@@ -81,8 +85,18 @@ const Home = props => {
         "descricao": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui."
       }]
     );
-    const [selectProducts, setSelectProduct] = useState();
+    const [showNewProductOrEditProductCard, setShowNewProductOrEditProductCard] = useState(false);
+    const [showConfirmPopUp, setShowConfirmPopUp] = useState(true);
+    const [selectedProducts, setSelectedProduct] = useState([]);
     
+    const handleClose = () => {
+      setShowNewProductOrEditProductCard(!showNewProductOrEditProductCard);
+    }
+  
+    const selectProduct = () => {
+
+    }
+
     const insertProduct = () => {
       
     }
@@ -96,17 +110,22 @@ const Home = props => {
     }
 
     return <Wrapper>
+
         <Title>Sponte</Title>
-        <SearchBar/>
-        <NavBar>
-            <SelectAll/>
-            <DeleteProductButton/>
-            <EditProductButton/>
-            <NewProductButton/>
-        </NavBar>
-        <Container>
-            {products && products.map( (e, i) =>  <ProductCard key={i} data={e}/>)}
-        </Container>
+          <SearchBar/>
+            <NavBar>
+                <div>
+                  <SelectAll/>
+                  <DeleteProductButton onClick={() => setShowConfirmPopUp(true)}><img src={DeleteIcon}/>Deletar</DeleteProductButton>
+                  <EditProductButton onClick={() => setShowNewProductOrEditProductCard(true)}><img src={EditIcon}/></EditProductButton>
+                  <NewProductButton onClick={() => setShowNewProductOrEditProductCard(true)}>Novo</NewProductButton>
+                </div>
+            </NavBar>
+          <Container>
+              {products && products.map( (e, i) =>  <ProductCard key={i} data={e}/>)}
+          </Container>
+          {showNewProductOrEditProductCard ? <NewProductOrEditProductCard handleClose={handleClose}/> : null}
+          {showConfirmPopUp ? <ConfirmPopUP/> : null}    
     </Wrapper>
 }
 
