@@ -83,7 +83,6 @@ export const ProductCard = styled.div`
     min-width: 60vw;
     &:hover {
         cursor: pointer;
-        filter: 
     }
     span {
         text-overflow: ellipsis;
