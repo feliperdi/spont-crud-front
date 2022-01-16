@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const scaleAnimation = keyframes`
+    0% {
+        transform: scale(0.1);
+    };
+    100% {
+        transform: scale(1);
+    }
+`
 
 export const Wrapper = styled.div`
     display: flex;
@@ -8,6 +17,8 @@ export const Wrapper = styled.div`
     height: 100vh;
     position: absolute;
     background-color: rgba(255,255,255,0.5);
+    animation: ${scaleAnimation};
+    animation-duration: 0.1s;
 `
 export const Card = styled.div`
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;

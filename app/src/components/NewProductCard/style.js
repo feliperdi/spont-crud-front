@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const moveAnimation = keyframes`
+    0% {
+        transform: translate(-100vw);
+    } 
+    100% {
+        transform: translate(0);
+    }
+`
 
 export const Wrapper = styled.div`
     display: flex;
@@ -33,6 +42,8 @@ export const Card = styled.div`
     box-sizing: border-box;
     z-index: 2;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    animation: ${moveAnimation};
+    animation-duration:0.1s;
 `
 export const Header = styled.div`
     display: flex;

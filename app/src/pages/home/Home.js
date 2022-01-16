@@ -46,6 +46,7 @@ const Home = props => {
         setIsEditingProductCard(true);
       } else {  
         setIsEditingProductCard(false);
+        setSelectAll(false);
         setSelectedProducts([]);
       }
     }
@@ -54,6 +55,7 @@ const Home = props => {
       if(show) {
         setIsDeletingPopUp(true);
       } else {  
+        setSelectAll(false);
         setIsDeletingPopUp(false);
         setSelectedProducts([]);
       }
