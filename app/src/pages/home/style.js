@@ -8,8 +8,13 @@ export const Wrapper = styled.div`
     padding: 12px;
     overflow: hidden;
 `
-export const Title = styled.h2`
-
+export const Title = styled.p`
+    font-size: 24px;
+    margin: 24px;
+    @media(min-width: 768px){
+        font-size: 48px;
+        margin-bottom: 48px;
+    }
 `
 export const Container = styled.div`
     margin-top: 8px;
@@ -17,6 +22,9 @@ export const Container = styled.div`
     width: 80vw;
     overflow-y: auto;
     padding: 12px;
+    @media(min-width: 1280px) {
+        width: 52vw;
+    }
 `
 export const NavBar = styled.div`
     margin-top: 12px;
@@ -27,21 +35,26 @@ export const NavBar = styled.div`
         display: flex;
         align-items: center;
     }
+    @media(min-width: 1280px) {
+        width: 52vw;
+        padding: 12px 0;
+    }
 
 `
-export const SelectAll = styled.div`
-    @media(min-width: 768px) {
-        border: 1px solid #dedede;
-        height: 4vh;
-        width: 6vw;
-        margin: 0 8px;
-        visibility: visible;
-    }
+export const SelectAll = styled.input`
     visibility: hidden;
     height: 0vh;
     width: 0vw;
     margin: 0;
-    
+    @media(min-width: 768px) {
+        border: 1px solid #dedede;
+        height: 3vh;
+        width: 6vw;
+        visibility: visible;
+    }
+    @media(min-width: 1280px) {
+        margin: 0;
+    }    
 `
 export const NewProductButton = styled.button`
     margin: 0 8px;
@@ -51,6 +64,17 @@ export const NewProductButton = styled.button`
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
+    &:hover {
+        cursor: pointer;
+    }
+    @media(min-width: 768px) {
+        width: 12vw;
+        padding: 12px 14px;
+    }
+    @media(min-width: 1280px) {
+        width: 8vw;
+        padding: 14px 18px;
+    }        
 `
 export const DeleteProductButton = styled.button`
     margin: 0 8px;
@@ -60,11 +84,20 @@ export const DeleteProductButton = styled.button`
     padding: 8px 12px;
     border-radius: 4px;
     color: #ffff;
-    background: #E47171;
+    background: ${props => props.disabled ? '#D0D0D0' : '#E47171'};;
+    &:hover {
+        cursor: ${props => props.disabled ? 'default' : 'pointer'};
+    }
     img {
         height: 16px;
         margin-right: 2px;
     }
+    @media(min-width: 768px) {
+        padding: 12px 14px;
+    }
+    @media(min-width: 1280px) {
+        padding: 14px 18px;
+    }  
     
 `
 export const EditProductButton = styled.button`
@@ -72,11 +105,20 @@ export const EditProductButton = styled.button`
     margin: 0 8px;
     display: flex;
     align-items: center;
-    border: none;
+    border: ${props => props.disabled ? '1px solid #dedede' : '1px solid #505050'};;
     padding: 8px 12px;
     border-radius: 4px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    filter: ${props => props.disabled ? 'opacity(50%)' : 'opacity(100%)'};
+    &:hover {
+        cursor: ${props => props.disabled ? 'default' : 'pointer'};
+    }
     img {
         height: 16px;
     }
+    @media(min-width: 768px) {
+        padding: 12px 14px;
+    }
+    @media(min-width: 1280px) {
+        padding: 14px 18px;
+    }  
 `

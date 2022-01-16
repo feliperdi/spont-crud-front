@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ExpandMoreIcon from '../../icons/expand_more.svg'
+import NoProductImage from '../../image/sem_foto.jpg';
 
 import {
     Wrapper,
@@ -16,36 +17,50 @@ import {
 
 
 const ProductCard = props => {
-    const {data} = props;
+    const {data, selectedProducts, handleSelection} = props;
     const [showBody, setShowBody] = useState(false);
+    const [checked, setChecked] = useState(false)
 
     const formatterToBRL = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
     });
 
+    useEffect( () => {
+        const checked = selectedProducts.find( e => e.id == data.id );
+        if(checked) setChecked(true);
+        else setChecked(false)
+    },[selectedProducts])
+
+    useEffect( () => {
+        setShowBody(false);
+    }, [data])
 
     return <Wrapper>
-        <Category color={data.color}>{data.categoria}</Category>
+        <Category >{data.category}</Category>
         <Header>
-            <Select/>
-            <Name>{data.nome}</Name>
+            <Select type='checkbox' checked={checked} value={data.id} onChange={handleSelection}/>
+            <Name>{data.name}</Name>
             <ExpandMoreButton onClick={() => setShowBody(!showBody)}><img src={ExpandMoreIcon}/></ExpandMoreButton>
         </Header>
         {showBody ? <Body>
-            <ProductImage src={"https://picsum.photos/200/300"}/>
-            <Description>{data.descricao}</Description>
+            {/* 
+                A imagem teria que ser enviada para o back ou tratada de alguma outra maneira.
+                Por enquanto fica esse jpg no lugar.  =/
+            */}
+            <ProductImage src={NoProductImage}/> 
+            <Description>{data.description}</Description>
             <BodyContent>
                 <div>
-                    <p>{`Altura: ${data.altura} cm`}</p>
-                    <p>{`Largura: ${data.largura} cm`}</p>
-                    <p>{`Comprimento: ${data.comprimento} cm`}</p>
-                    <p>{`Peso: ${data.peso} kg`}</p>
+                    <p>{`Altura: ${data.height} cm`}</p>
+                    <p>{`Largura: ${data.width} cm`}</p>
+                    <p>{`Comprimento: ${data.length} cm`}</p>
+                    <p>{`Peso: ${data.weight} kg`}</p>
                 </div>
                 <div>
-                    <p>{`Adicionado em: ${data.data}`}</p>
-                    <p>Código: {data.codigo}</p>
-                    <p>Valor: {formatterToBRL.format(data.valor)}</p>
+                    <p>{`Adicionado em: ${data.date}`}</p>
+                    <p>Código: {data.bar_code}</p>
+                    <p>Valor: {formatterToBRL.format(data.value)}</p>
                 </div>
             </BodyContent>
         </Body> : null}
