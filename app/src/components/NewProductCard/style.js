@@ -19,8 +19,9 @@ export const Background = styled.div`
     align-items: start;
     justify-content: center;
     background-color: rgba(255,255,255,0.5);
-    height: 100vh;
     width: 100vw;
+    height: fit-content;
+    overflow-y: auto;
     right: 0;
     top: 0;
     z-index: 1;

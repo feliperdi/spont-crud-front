@@ -125,6 +125,7 @@ const Home = props => {
                     type='checkbox' 
                     checked={selectAll} 
                     onChange={handleSelectAll}
+                    disabled={filteredProducts.length === 0}
                   />
                   <DeleteProductButton 
                     disabled={selectedProducts.length <= 0} 

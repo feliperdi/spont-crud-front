@@ -40,8 +40,10 @@ const ProductCard = props => {
         <Category >{data.category}</Category>
         <Header>
             <Select type='checkbox' checked={checked} value={data.id} onChange={handleSelection}/>
-            <Name>{data.name}</Name>
-            <ExpandMoreButton onClick={() => setShowBody(!showBody)}><img src={ExpandMoreIcon}/></ExpandMoreButton>
+            <div onClick={() => setShowBody(!showBody)}>
+                <Name>{data.name}</Name>
+                <ExpandMoreButton onClick={() => setShowBody(!showBody)}><img src={ExpandMoreIcon}/></ExpandMoreButton>
+            </div>
         </Header>
         {showBody ? <Body>
             {/* 

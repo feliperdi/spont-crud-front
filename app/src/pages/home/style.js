@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     padding: 12px;
-    overflow: hidden;
 `
 export const Title = styled.p`
     font-size: 24px;
