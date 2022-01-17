@@ -3,6 +3,8 @@
   
 ### Estatos: Completo.
 
+### LIVE VERSION: [Aqui](https://hilarious-crown.surge.sh/) :eyes:
+
 #### O que eu aprendi ?
   Formik, yup e cypress (<strike>me impressionei muito mais com último</strike>) foram maravilhosas descobertas. Não tive grandes problemas com
   a utilização dessas libraries/framework. A documentação completa ajudou muito. Confesso que não fiquei satisfeito com o layout geral
