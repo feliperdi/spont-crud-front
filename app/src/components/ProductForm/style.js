@@ -3,16 +3,19 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
-    padding: 24px;
+    padding: 12px;
     width: 64vw;
     @media(max-width: 426px) {
-        padding: 12px;
+        padding: 8px;
+    }
+    @media(min-width: 768px) {
+        width: 52vw;
+        padding: 6px;
     }
 `
 export const Form = styled.form`
     display: flex;
     flex-flow: row wrap;
-    
 `
 
 export const InputBox = styled.div`
@@ -44,6 +47,7 @@ export const Input = styled.input`
         width: ${ props => props.width ? '22vw' : "60vw"};
     }
     @media(min-width: 768px) {
+        width: ${ props => props.width ? '12vw' : "48vw"};
         font-size: 18px;
         height: 32px;
     }
@@ -54,7 +58,7 @@ export const Label = styled.label`
     width: fit-content;
     color: ${props => props.error ? "#F54242" : ( (props.isFocus === props.htmlFor) ? '#7ADEE4' : "#484848")};
     @media(min-width: 768px) {
-        font-size: 16x;
+        font-size: 18px;
     }
 `
 
@@ -78,7 +82,7 @@ export const CategorySelect = styled.select`
 `
 export const Description = styled.textarea`
     width: 24vw;
-    height: 12vh;
+    height: 10vh;
     resize: none;
     border: 1px solid #8b8b8b;
     border-radius: 4px;
@@ -93,6 +97,9 @@ export const Description = styled.textarea`
     @media(min-width: 320px) {
         width: 64vw;
     }
+    @media(min-width: 768px) {
+        width: 48vw;
+    }
 
 `
 
@@ -103,7 +110,6 @@ export const Errors = styled.div`
     width: 100%;
 `
 export const Footer = styled.div`
-    margin-top: 24px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -118,8 +124,14 @@ export  const SubimitButton = styled.button`
     background: #7ADEE4;
     color: #ffff;
     border-radius: 4px;
+    outline: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     &:hover {
         cursor: pointer;
+    }
+    @media(min-width: 768px) {
+        height: 48px;
+        width: 156px;
+        font-size: 16px;
     }
 `
