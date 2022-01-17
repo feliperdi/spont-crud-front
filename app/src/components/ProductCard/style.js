@@ -14,6 +14,11 @@ export const Header = styled.div`
     &:hover {
         cursor: pointer;
     }
+    div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
 `
 export const Select = styled.input`
     border: 1px solid #dedede;
@@ -50,10 +55,12 @@ export const Category = styled.div`
 
 `
 export const ExpandMoreButton = styled.button`
-    
-      border: none;
-      background: none;
-      align-self: flex-end;
+    border: none;
+    background: none;
+    align-self: flex-end;
+    &:hover {
+        cursor: pointer;
+    }
 `
 export const Body = styled.div`
     display: flex;

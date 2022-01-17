@@ -93,9 +93,7 @@ export const Description = styled.textarea`
     @media(min-width: 320px) {
         width: 64vw;
     }
-    @media(min-width: 768px) {
-        width: 64vw;
-    }
+
 `
 
 export const Errors = styled.div`

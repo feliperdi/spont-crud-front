@@ -100,7 +100,8 @@ const ProductForm = props => {
                         onFocus={(e) => setFocusInput(e.target.name)}
                         type='number'
                         width={'26vw'}
-                        min={0} 
+                        min={0}
+                        placeholder='cm'
                         name='height'
                         onChange={handleChange}
                         onBlur={e => {
@@ -120,6 +121,7 @@ const ProductForm = props => {
                         width={'26vw'}
                         min={0} 
                         name='width'
+                        placeholder='cm'
                         onChange={handleChange}
                         onBlur={e => {
                             setFocusInput('');
@@ -138,6 +140,7 @@ const ProductForm = props => {
                         width={'26vw'}
                         min={0} 
                         name='length'
+                        placeholder='cm'
                         onChange={handleChange}
                         onBlur={e => {
                             setFocusInput('');
@@ -156,6 +159,7 @@ const ProductForm = props => {
                         width={'26vw'}
                         min={0} 
                         name='weight'
+                        placeholder='cm'
                         onChange={handleChange}
                         onBlur={e => {
                             setFocusInput('');
@@ -174,6 +178,7 @@ const ProductForm = props => {
                         width={'26vw'}
                         min={0} 
                         name='bar_code'
+                        placeholder='000000000000000'
                         onChange={handleChange}
                         onBlur={e => {
                             setFocusInput('');
@@ -191,7 +196,7 @@ const ProductForm = props => {
                         onChange={handleChange}
                         value={values.category}
                         error={(errors.category && touched.category)}>
-                        {categories ? categories.map( (e,i) => <option key={i}>{e}</option>) : null}
+                        {categories ? categories.map( (e,i) => <option key={i} value={e}>{e}</option>) : null}
                         </CategorySelect>
                     {errors.category && touched.category && <Errors>{errors.category}</Errors>}
                 </InputBox>
@@ -203,6 +208,7 @@ const ProductForm = props => {
                         onFocus={(e) => setFocusInput(e.target.name)}
                         min={0} 
                         name='value'
+                        placeholder='Preço'
                         onChange={handleChange}
                         onBlur={e => {
                             setFocusInput('');
