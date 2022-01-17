@@ -20,16 +20,15 @@ export const Background = styled.div`
     justify-content: center;
     background-color: rgba(255,255,255,0.5);
     width: 100vw;
-    height: fit-content;
+    height: 100%;
     overflow-y: auto;
     right: 0;
     top: 0;
     z-index: 1;
     position: absolute;
-    @media(min-width: 768px) {
-        margin-top: 24px;
+    @media(min-width: 768px){
+        align-items: center;
     }
-
 `
 export const Card = styled.div`
     display: flex;
@@ -51,8 +50,7 @@ export const Header = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 4vh;
-    width: 100%;
-    
+    width: 100%;    
 `
 export const Title = styled.p`
     font-size: 24px;
@@ -81,7 +79,7 @@ export const Content = styled.div`
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
-    margin-top: 24px;
+    margin-top: 18px;
     flex-flow: row wrap;
 `
 
